@@ -21,7 +21,7 @@ loginForm?.addEventListener('submit', async (event) => {
   }).then((data) => data.json());
 
   let outerText;
-  switch (response) {
+  switch (response.message) {
     case 'authorized':
       outerText = 'Авторизация пройдена';
       clearValues();

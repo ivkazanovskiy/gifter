@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const cookieConfig = require('../config/cookieConfig');
 const { User } = require('../db/models');
+require('dotenv').config();
 
 router.route('/')
   .get((req, res) => {
@@ -23,11 +26,12 @@ router.route('/')
     if (!user) {
       message = 'notFound';
     } else if (await bcrypt.compare(password, user.password)) {
-      req.session.user = user;
+      const token = jwt.sign({ id: user.id }, process.env.ACCESS_TOKEN_SECRET);
       message = 'authorized';
+      res.cookie('tokenId', token, cookieConfig);
     } else {
       message = 'incorrectPassword';
     }
-    res.json(message);
+    res.json({ message });
   });
 module.exports = router;
