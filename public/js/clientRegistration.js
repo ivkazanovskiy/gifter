@@ -2,6 +2,8 @@ const { registrationForm } = document;
 registrationForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
 
+  let outerText;
+
   const clearValues = () => {
     registrationForm.name.value = '';
     registrationForm.email.value = '';
@@ -14,31 +16,33 @@ registrationForm?.addEventListener('submit', async (event) => {
     name: { value: name },
     email: { value: email },
     password: { value: password },
+    repeatPassword: { value: repeatPassword },
   } = event.target;
 
-  const response = await fetch(url, {
-    method,
-    body: JSON.stringify({ name, email, password }),
-    headers: { 'Content-Type': 'application/json' },
-  }).then((data) => data.json());
+  if (password !== repeatPassword) {
+    outerText = 'Пароли не совпадают';
+  } else {
+    const response = await fetch(url, {
+      method,
+      body: JSON.stringify({ name, email, password }),
+      headers: { 'Content-Type': 'application/json' },
+    }).then((data) => data.json());
 
-  let outerText;
-  switch (response) {
-    case 'added':
-      outerText = 'Вы успешно зарегестрированны';
-      clearValues();
-      break;
-    case 'changeEmail':
-      outerText = 'Пользователь с таким e-mail уже существует';
-      registrationForm.email.value = '';
-      break;
-    case 'incorrect':
-      outerText = 'Введите корректные данные';
-      break;
-    default:
-      outerText = response;
-      break;
+    switch (response) {
+      case 'added':
+        window.location.href = '/';
+        break;
+      case 'changeEmail':
+        outerText = 'Пользователь с таким e-mail уже существует';
+        registrationForm.email.value = '';
+        break;
+      case 'incorrect':
+        outerText = 'Введите корректные данные';
+        break;
+      default:
+        outerText = response;
+        break;
+    }
   }
-
-  document.getElementById('responseMessage').innerText = outerText;
+  if (outerText) document.getElementById('responseMessage').innerText = outerText;
 });

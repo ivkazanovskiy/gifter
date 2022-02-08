@@ -6,8 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script defer src="/js/clientRegistration.js"></script>
   <script defer src="/js/clientLogin.js"></script>
+    <script defer src="/js/clientEdit.js"></script>
   <title>Document</title>
 </head>
+<nav>
+  <form action="/">
+    <button type="submit">home</button>
+  </form>
+  {{#if user}}
+  <form action="/logout">
+    <button type="submit">Sign-Out</button>
+  </form> 
+  {{else}}
+  <form action="/login">
+    <button type="submit">Sign-In</button>
+  </form>
+  <form action="/registration">
+    <button type="submit">Sign-Up</button>
+  </form>  
+  {{/if}}
+</nav>
 <body>
   {{{body}}}
 </body>

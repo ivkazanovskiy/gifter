@@ -1,11 +1,7 @@
 const { loginForm } = document;
+
 loginForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
-
-  const clearValues = () => {
-    loginForm.email.value = '';
-    loginForm.password.value = '';
-  };
 
   const {
     action: url,
@@ -23,8 +19,7 @@ loginForm?.addEventListener('submit', async (event) => {
   let outerText;
   switch (response.message) {
     case 'authorized':
-      outerText = 'Авторизация пройдена';
-      clearValues();
+      window.location.href = '/';
       break;
     case 'incorrectPassword':
       outerText = 'Неправильный пароль';
@@ -39,5 +34,5 @@ loginForm?.addEventListener('submit', async (event) => {
       break;
   }
 
-  document.getElementById('responseMessage').innerText = outerText;
+  if (outerText) document.getElementById('responseMessage').innerText = outerText;
 });

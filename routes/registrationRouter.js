@@ -1,7 +1,10 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const { User } = require('../db/models');
 const isValid = require('../helpers/isValid');
+const cookieConfig = require('../config/cookieConfig');
+require('dotenv').config();
 
 router.route('/')
   .get((req, res) => {
@@ -19,7 +22,9 @@ router.route('/')
 
     const password = await bcrypt.hash(passwordUnsec, 10);
     try {
-      await User.create({ name, email, password });
+      const user = await User.create({ name, email, password });
+      const token = jwt.sign({ id: user.id }, process.env.ACCESS_TOKEN_SECRET);
+      res.cookie('tokenId', token, cookieConfig);
       message = 'added';
     } catch (err) {
       message = 'changeEmail';
