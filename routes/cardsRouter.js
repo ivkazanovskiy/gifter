@@ -8,12 +8,12 @@ router.route('/')
     try {
       cards = await Card.findAll({
         where: { userId: req.body.id },
+        raw: true,
       });
     } catch (error) {
       // заглушка, надо продумать данный сценарий
       return res.redirect('/');
     }
-    console.log(cards);
     res.render('cards', { user: req.body.id, cards });
   });
 
@@ -29,6 +29,9 @@ router.route('/new')
     const {
       name, state, description, id,
     } = req.body;
+    // проверка непустых значений
+    // заменить фетчем
+    if (!name || !state || !description) return res.redirect('/cards/new');
 
     try {
       await Card.create({

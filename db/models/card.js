@@ -14,9 +14,24 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Card.init({
-    name: DataTypes.TEXT,
-    state: DataTypes.TEXT,
-    description: DataTypes.TEXT,
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER,
+    },
+    name: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    state: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
     userId: {
       type: DataTypes.INTEGER,
       references: {
