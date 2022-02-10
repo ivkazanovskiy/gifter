@@ -4,11 +4,10 @@ const jwt = require('jsonwebtoken');
 const cookieConfig = require('../config/cookieConfig');
 const { User } = require('../db/models');
 require('dotenv').config();
+const render = require('../controller/render');
 
 router.route('/')
-  .get((req, res) => {
-    res.render('login');
-  })
+  .get(render.login)
   .post(async (req, res) => {
     let message;
     let user;

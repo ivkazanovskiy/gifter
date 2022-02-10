@@ -1,8 +1,6 @@
 const router = require('express').Router();
+const render = require('../controller/render');
 
-router.route('/')
-  .get((req, res) => {
-    res.render('index', { user: req.body.id });
-  });
+router.get('/', render.index);
 
 module.exports = router;

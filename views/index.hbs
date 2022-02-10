@@ -1,5 +1,17 @@
+<div class="big-icons">
 {{#if user}}
-<form action="/profile">
-  <button type="submit">Profile</button>
-</form>  
+  <form action="/crews/new">
+    <button type="submit">New Crew</button>
+  </form>
+  <form action="/crews">
+    <button type="submit">My Crews</button>
+  </form> 
+{{else}}
+  <form action="/login">
+    <button type="submit">Sign-In</button>
+  </form>
+  <form action="/registration">
+    <button type="submit">Sign-Up</button>
+  </form>  
 {{/if}}
+</div>

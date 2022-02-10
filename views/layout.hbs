@@ -6,27 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script defer src="/js/clientRegistration.js"></script>
   <script defer src="/js/clientLogin.js"></script>
-    <script defer src="/js/clientEdit.js"></script>
+  <script defer src="/js/clientEditProfile.js"></script>
+  <link href="/css/style.css" rel="stylesheet">
   <title>Document</title>
 </head>
-<nav>
-  <form action="/">
-    <button type="submit">home</button>
-  </form>
+<body class="flex flex-col h-screen">
+  <nav class="flex justify-start h-24">
   {{#if user}}
-  <form action="/logout">
+  <form action="/" class="ml-10 sm:ml-20 md:ml-40 lg:ml-60 2xl:ml-80">
+    <button type="submit">Home</button>
+  </form>
+  <form action="/profile" class="ml-auto">
+    <button type="submit">Profile</button>
+  </form>  
+  <form action="/logout" class="mr-10 sm:mr-20 md:mr-40 lg:mr-60 2xl:mr-80">
     <button type="submit">Sign-Out</button>
   </form> 
-  {{else}}
-  <form action="/login">
-    <button type="submit">Sign-In</button>
-  </form>
-  <form action="/registration">
-    <button type="submit">Sign-Up</button>
-  </form>  
   {{/if}}
-</nav>
-<body>
-  {{{body}}}
+  </nav>
+  <div class="flex-auto">
+    {{{body}}}
+  </div>
 </body>
 </html>
