@@ -1,23 +1,11 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Cards', {
+    await queryInterface.createTable('Messages', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
-      },
-      name: {
-        type: Sequelize.TEXT,
-        allowNull: false,
-      },
-      state: {
-        type: Sequelize.TEXT,
-        allowNull: false,
-      },
-      description: {
-        type: Sequelize.TEXT,
-        allowNull: false,
       },
       userId: {
         type: Sequelize.INTEGER,
@@ -25,6 +13,24 @@ module.exports = {
           model: 'Users',
           key: 'id',
         },
+      },
+      crewId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Crews',
+          key: 'id',
+        },
+      },
+      gifterId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id',
+        },
+      },
+      text: {
+        allowNull: false,
+        type: Sequelize.TEXT,
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +43,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Cards');
+    await queryInterface.dropTable('Messages');
   },
 };

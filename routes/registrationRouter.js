@@ -5,11 +5,10 @@ const { User } = require('../db/models');
 const isValid = require('../helpers/isValid');
 const cookieConfig = require('../config/cookieConfig');
 require('dotenv').config();
+const render = require('../controller/render');
 
 router.route('/')
-  .get((req, res) => {
-    res.render('registration');
-  })
+  .get(render.registration)
   .post(async (req, res) => {
     let message;
 

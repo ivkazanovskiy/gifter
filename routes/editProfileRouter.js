@@ -12,7 +12,7 @@ router.route('/')
       return res.redirect('/login');
     }
 
-    res.render('edit', {
+    res.render('editProfile', {
       user: req.body.id,
       email: user.email,
       name: user.name,

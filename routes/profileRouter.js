@@ -1,10 +1,7 @@
 const router = require('express').Router();
+const render = require('../controller/render');
 
 router.route('/')
-  .get((req, res) => {
-    if (!req.body.id) return res.redirect('/login');
-
-    res.render('profile', { user: req.body.id });
-  });
+  .get(render.profile);
 
 module.exports = router;
