@@ -16,7 +16,7 @@ router.route('/:crewId/add')
   .get(render.addMember)
   .post(crews.addMember);
 
-router.route('/:crewId/:memberId')
+router.route('/:crewId/:gifterId')
   .get(render.room);
 
 module.exports = router;

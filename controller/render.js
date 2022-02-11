@@ -1,5 +1,5 @@
 const { Op } = require('sequelize');
-const { User, Crew } = require('../db/models');
+const { User, Crew, Message } = require('../db/models');
 const normalizeCrews = require('../helpers/normalizeCrews');
 const normalizeMembers = require('../helpers/normalizeMembers');
 const normalizeRoomMembers = require('../helpers/normalizeRoomMembers');
@@ -71,10 +71,11 @@ class Render {
     } catch (error) { res.json(error); }
 
     normalizeMembers(members, crewId);
-    console.log(members, crewId);
+
     res.render('members', {
       crewId,
       members,
+      membersPage: true,
       user: req.body.id,
     });
   }
@@ -82,7 +83,7 @@ class Render {
   async room(req, res) {
     if (!req.body.id) return res.redirect('/login');
     const userId = req.body.id;
-    const { crewId, memberId } = req.params;
+    const { crewId, gifterId } = req.params;
     let roomMembers;
 
     try {
@@ -90,9 +91,18 @@ class Render {
         where: { id: crewId },
         include: {
           model: User,
-          where: { id: { [Op.ne]: memberId } },
+          where: { id: { [Op.ne]: gifterId } },
           attributes: ['id', 'name'],
         },
+        raw: true,
+      });
+    } catch (error) { res.json(error); }
+
+    let messages;
+    try {
+      messages = await Message.findAll({
+        where: { crewId, gifterId },
+        attributes: ['userId', 'text'],
         raw: true,
       });
     } catch (error) { res.json(error); }
@@ -101,7 +111,10 @@ class Render {
 
     res.render('room', {
       user: req.body.id,
+      messages,
       roomMembers,
+      gifterId,
+      crewId,
       userId,
       room: true,
     });
