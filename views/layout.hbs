@@ -14,28 +14,28 @@
   <link href="/css/style.css" rel="stylesheet">
   <title>Document</title>
 </head>
-<body class="flex flex-col h-screen">
-  <nav class="flex justify-start h-24">
+<body class="flex flex-col h-screen m-2">
+  <nav class="flex justify-start flex-1">
   {{#if user}}
-  <form action="/" class="ml-10 sm:ml-20 md:ml-40 lg:ml-60 2xl:ml-80">
-    <button type="submit">Home</button>
-  </form>
+    <form action="/" class="ml-10 sm:ml-20 md:ml-40 lg:ml-60 2xl:ml-80">
+      <button type="submit">Home</button>
+    </form>
   {{/if}}
   {{#if membersPage}}
-  <form action="/crews/{{crewId}}/add" class="ml-auto mr-auto">
-    <button type="submit">Add member</button>
-  </form>  
+    <form action="/crews/{{crewId}}/add" class="ml-auto mr-auto">
+      <button type="submit">Add member</button>
+    </form>  
   {{/if}}
   {{#if user}}
-  <form action="/profile" class="ml-auto">
-    <button type="submit">Profile</button>
-  </form>  
-  <form action="/logout" class="mr-10 sm:mr-20 md:mr-40 lg:mr-60 2xl:mr-80">
-    <button type="submit">Sign-Out</button>
-  </form> 
+    <form action="/profile" class="ml-auto">
+      <button type="submit">Profile</button>
+    </form>  
+    <form action="/logout" class="mr-10 sm:mr-20 md:mr-40 lg:mr-60 2xl:mr-80">
+      <button type="submit">Sign-Out</button>
+    </form> 
   {{/if}}
   </nav>
-  <div class="flex-auto">
+  <div class="  h-5/6  ">
     {{{body}}}
   </div>
 </body>
