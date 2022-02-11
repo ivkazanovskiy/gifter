@@ -8,13 +8,15 @@
   {{/each}}
   </div>
   <div class="flex border-2 w-1/2 flex-col">
-    <div class="chatBox" class="chatMessage">
+    <div class="chatBox">
       <div ></div>
       {{#each messages }}
-        {{>message}}
+        <div class="chatMessage">
+          {{>message}}
+        </div>
       {{/each}}
     </div>
-    <form class="flex border-2 border-black" name="chatForm" data-id="{{userId}}">
+    <form class="flex border-2 border-black" name="chatForm" data-user_id="{{userId}}" data-gifter_id="{{gifterId}}" data-crew_id="{{crewId}}"">
       <input type="text" class="h-0 p-5 grow border-2 border-black" name="text"> 
       <button type="submit" class="w-10 h-10 m-0 rounded-full border-2 border-black"></button>
     </form>
