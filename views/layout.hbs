@@ -7,6 +7,10 @@
   <script defer src="/js/clientRegistration.js"></script>
   <script defer src="/js/clientLogin.js"></script>
   <script defer src="/js/clientEditProfile.js"></script>
+  {{#if room}}
+  <script src="/socket.io/socket.io.js"></script>
+  <script defer src="/js/clientRoom.js"></script>
+  {{/if}}
   <link href="/css/style.css" rel="stylesheet">
   <title>Document</title>
 </head>

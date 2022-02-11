@@ -15,6 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   CrewMember.init({
     userId: {
+      allowNull: false,
+      primaryKey: true,
       type: DataTypes.INTEGER,
       references: {
         model: 'Users',
@@ -22,6 +24,8 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     crewId: {
+      allowNull: false,
+      primaryKey: true,
       type: DataTypes.INTEGER,
       references: {
         model: 'Crews',

@@ -37,4 +37,12 @@
   .crew-list button{
     @apply h-40 w-40 m-7
   }
+
+  .chatBox{
+    @apply  flex flex-col justify-end grow border-2 border-black
+  }
+
+  .chatMessage{
+    @apply p-2 m-2 border-2 border-black rounded-md mr-8
+  }
 }

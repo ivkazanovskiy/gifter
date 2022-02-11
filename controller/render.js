@@ -71,7 +71,7 @@ class Render {
     } catch (error) { res.json(error); }
 
     normalizeMembers(members, crewId);
-
+    console.log(members, crewId);
     res.render('members', {
       crewId,
       members,
@@ -99,7 +99,12 @@ class Render {
 
     normalizeRoomMembers(roomMembers);
 
-    res.render('room', { user: req.body.id, roomMembers, userId });
+    res.render('room', {
+      user: req.body.id,
+      roomMembers,
+      userId,
+      room: true,
+    });
   }
 
   async newCrew(req, res) {
