@@ -3,16 +3,21 @@ const { Message } = require('../db/models');
 function webSocket(io, app) {
   io.on('connection', (socket) => {
     console.log('WS has been connected');
+    
+    socket.on('toServer:joinRoom', (roomId) => {
+      console.log(`Joined ${roomId} room`);
+      socket.join(roomId);
+    });
 
-    socket.on('toServer:message', async (message) => {
+    socket.on('toServer:message', async (message, roomId) => {
       try {
-        const mes = await Message.create({
+        await Message.create({
           text: message.text,
           userId: message.userId,
           gifterId: message.gifterId,
           crewId: message.crewId,
         });
-        socket.broadcast.emit('toClient:message', message);
+        socket.broadcast.to(roomId).emit('toClient:message', message);
       } catch (error) {
         console.log(error.message);
       }

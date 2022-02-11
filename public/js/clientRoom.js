@@ -2,6 +2,9 @@ const socket = io();
 
 const chatBox = document.querySelector('.chatBox');
 const { chatForm } = document;
+const gifterId = chatForm.dataset.gifter_id;
+const crewId = chatForm.dataset.crew_id;
+const roomId = `${crewId}_${gifterId}`;
 
 function addMessage(message) {
   const newMessage = document.createElement('div');
@@ -10,19 +13,21 @@ function addMessage(message) {
   chatBox.appendChild(newMessage);
 }
 
+socket.emit('toServer:joinRoom', roomId);
+
 chatForm?.addEventListener('submit', (event) => {
   event.preventDefault();
 
   const message = {
     text: chatForm.text.value,
     userId: chatForm.dataset.user_id,
-    gifterId: chatForm.dataset.gifter_id,
-    crewId: chatForm.dataset.crew_id,
+    gifterId,
+    crewId,
   };
 
   if (message.text) {
     chatForm.text.value = '';
-    socket.emit('toServer:message', message);
+    socket.emit('toServer:message', message, roomId);
     addMessage(message);
   }
 });
