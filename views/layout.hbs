@@ -16,6 +16,13 @@
   <form action="/" class="ml-10 sm:ml-20 md:ml-40 lg:ml-60 2xl:ml-80">
     <button type="submit">Home</button>
   </form>
+  {{/if}}
+  {{#if members}}
+  <form action="/crews/{{crewId}}/add" class="ml-auto mr-auto">
+    <button type="submit">Add member</button>
+  </form>  
+  {{/if}}
+  {{#if user}}
   <form action="/profile" class="ml-auto">
     <button type="submit">Profile</button>
   </form>  

@@ -1,13 +1,20 @@
 <div class="flex items-strech h-full">
-  <div class="border-2 border-black  w-1/4"></div>
+  <div class="flex flex-col border-2 border-black  w-1/4">
+  {{#each roomMembers}}
+    <div class="flex" >
+      <div class="flex justify-center items-center border-2 m-2 border-black rounded-full w-10 h-10">{{this.id}}</div>
+      <div class="flex  items-center grow">{{this.name}}</div>
+    </div>
+  {{/each}}
+  </div>
   <div class="flex border-2 w-1/2 flex-col">
     <div class="border-2 grow border-black">
       {{#each messages }}
         {{>message}}
       {{/each}}
     </div>
-    <form class="flex border-2 border-black">
-      <input type="text" class="h-0 p-5 grow border-2 border-black"> 
+    <form class="flex border-2 border-black" name="chatForm" data-id="{{userId}}">
+      <input type="text" class="h-0 p-5 grow border-2 border-black" name="text"> 
       <button type="submit" class="w-10 h-10 m-0 rounded-full border-2 border-black"></button>
     </form>
   </div>

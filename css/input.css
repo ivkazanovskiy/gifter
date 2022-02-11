@@ -11,15 +11,15 @@
 
 @layer components{
   .input-text {
-    @apply border-2 h-10 border-black rounded-lg p-2 m-2 w-80;
+    @apply border-2 border-black rounded-lg p-2 m-2 w-80;
   }
 
   .input-form {
-    @apply flex flex-col items-center
+    @apply flex flex-col items-center mt-20
   }
   
   .input-form button {
-    @apply w-80 h-10 rounded-md
+    @apply w-80 h-auto p-2 mt-6 rounded-md
   }
 
   .big-icons{
