@@ -582,16 +582,24 @@ button:hover {
   margin-right: 2.5rem;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .flex {
   display: flex;
 }
 
-.h-full {
-  height: 100%;
+.h-screen {
+  height: 100vh;
 }
 
-.h-24 {
-  height: 6rem;
+.h-5\/6 {
+  height: 83.333333%;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .h-10 {
@@ -602,24 +610,16 @@ button:hover {
   height: 0px;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
 .h-auto {
   height: auto;
 }
 
-.h-5\/6 {
-  height: 83.333333%;
+.h-24 {
+  height: 6rem;
 }
 
 .w-10 {
   width: 2.5rem;
-}
-
-.flex-auto {
-  flex: 1 1 auto;
 }
 
 .flex-1 {
@@ -630,40 +630,12 @@ button:hover {
   flex-grow: 1;
 }
 
-.grow-0 {
-  flex-grow: 0;
-}
-
 .basis-1\/4 {
   flex-basis: 25%;
 }
 
 .basis-1\/2 {
   flex-basis: 50%;
-}
-
-.basis-1 {
-  flex-basis: 0.25rem;
-}
-
-.basis-20 {
-  flex-basis: 5rem;
-}
-
-.basis-auto {
-  flex-basis: auto;
-}
-
-.basis-0 {
-  flex-basis: 0px;
-}
-
-.basis-9 {
-  flex-basis: 2.25rem;
-}
-
-.basis-80 {
-  flex-basis: 20rem;
 }
 
 .flex-col {
@@ -682,24 +654,8 @@ button:hover {
   justify-content: center;
 }
 
-.self-end {
-  align-self: flex-end;
-}
-
-.overflow-auto {
-  overflow: auto;
-}
-
-.overflow-scroll {
-  overflow: scroll;
-}
-
 .overflow-y-scroll {
   overflow-y: scroll;
-}
-
-.scroll-smooth {
-  scroll-behavior: smooth;
 }
 
 .rounded-full {
@@ -717,10 +673,6 @@ button:hover {
 
 .p-5 {
   padding: 1.25rem;
-}
-
-.hover\:overflow-scroll:hover {
-  overflow: scroll;
 }
 
 @media (min-width: 640px) {
