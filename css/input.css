@@ -42,7 +42,7 @@
   }  
 
   .bigButtons { 
-    @apply flex flex-col mx-auto
+    @apply flex flex-col mx-auto items-center 
   }
 
   .bigButtons>form { 
@@ -158,4 +158,5 @@
   .wishList>li>button{
     @apply rounded-lg p-2 mr-2
   }
+
 }
