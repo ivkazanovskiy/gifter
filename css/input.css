@@ -12,7 +12,7 @@
   }
 
   nav {
-    @apply flex
+    @apply flex h-[15%]
   }
 
   button {
@@ -38,7 +38,7 @@
 
   /* какой-то жесткий костыль с высотой 96, но работает */
   .body { 
-    @apply flex-1 items-start justify-center h-96 
+    @apply items-start justify-center h-[85%]
   }  
 
   .bigButtons { 
@@ -82,11 +82,23 @@
   }
 
   .roomWishes{
-    @apply flex flex-col border-2 border-black
+    @apply order-1 h-[15%] flex justify-center
+  }
+  .roomWishes>ul{
+    @apply inline-block overflow-y-scroll 
+  }
+
+  .roomWishes>ul>li {
+    @apply flex items-center m-1 mx-auto
+  }
+
+
+  .roomWishes>ul>li>button {
+    @apply ml-2 p-1 rounded-lg
   }
 
   .roomChat{
-    @apply flex h-full border-2 flex-col 
+    @apply flex h-[85%] border-2 flex-col order-2
   }
 
   .chatBox {

@@ -435,6 +435,7 @@ body {
 
 nav {
   display: flex;
+  height: 15%;
 }
 
 button {
@@ -516,8 +517,7 @@ nav>form>button {
 /* какой-то жесткий костыль с высотой 96, но работает */
 
 .body {
-  height: 24rem;
-  flex: 1 1 0%;
+  height: 85%;
   align-items: flex-start;
   justify-content: center;
 }
@@ -590,16 +590,35 @@ nav>form>button {
 }
 
 .roomWishes {
+  order: 1;
   display: flex;
-  flex-direction: column;
-  border-width: 2px;
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  height: 15%;
+  justify-content: center;
+}
+
+.roomWishes>ul {
+  display: inline-block;
+  overflow-y: scroll;
+}
+
+.roomWishes>ul>li {
+  margin: 0.25rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+.roomWishes>ul>li>button {
+  margin-left: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
 }
 
 .roomChat {
+  order: 2;
   display: flex;
-  height: 100%;
+  height: 85%;
   flex-direction: column;
   border-width: 2px;
 }
@@ -724,10 +743,6 @@ nav>form>button {
 
 .grow {
   flex-grow: 1;
-}
-
-.flex-col {
-  flex-direction: column;
 }
 
 .items-center {
