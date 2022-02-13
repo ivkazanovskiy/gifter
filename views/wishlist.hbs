@@ -1,0 +1,14 @@
+<form name="newWishForm" class="input-form">
+  <label for="wish">New wish</label>
+  <input class="input-text" type="text" name="wish" id="wish">
+  <button type="submit">Add new wish</button>
+</form>
+<div id="responseMessage"></div>
+<ul class="wishList">
+  {{#each wishes }}
+      <li id="wish-{{this.id}}">
+        <div class="wishText">{{this.wish}}</div>
+        <button type="submit" data-wish_id="{{this.id}}" class="deleteWishButton">Delete</button>
+      </li>
+  {{/each}}
+</ul>

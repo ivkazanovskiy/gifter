@@ -1,5 +1,7 @@
 const { Op } = require('sequelize');
-const { User, Crew, Message } = require('../db/models');
+const {
+  User, Crew, Message, Wishlist,
+} = require('../db/models');
 const normalizeCrews = require('../helpers/normalizeCrews');
 const normalizeMembers = require('../helpers/normalizeMembers');
 const normalizeRoomMembers = require('../helpers/normalizeRoomMembers');
@@ -98,6 +100,15 @@ class Render {
       });
     } catch (error) { res.json(error); }
 
+    let wishes;
+    try {
+      wishes = await Wishlist.findAll({
+        where: { userId: gifterId },
+        attributes: ['id', 'wish'],
+        raw: true,
+      });
+    } catch (error) { res.json(error); }
+
     let messages;
     try {
       messages = await Message.findAll({
@@ -108,7 +119,9 @@ class Render {
     } catch (error) { res.json(error); }
 
     normalizeRoomMembers(roomMembers);
-
+    
+    console.log(wishes);
+    
     res.render('room', {
       user: req.body.id,
       messages,
@@ -116,6 +129,7 @@ class Render {
       gifterId,
       crewId,
       userId,
+      wishes,
       room: true,
     });
   }
@@ -130,6 +144,18 @@ class Render {
     if (!req.body.id) return res.redirect('/login');
     const { crewId } = req.params;
     res.render('addMember', { user: req.body.id, crewId });
+  }
+
+  async wishlist(req, res) {
+    if (!req.body.id) return res.redirect('/login');
+    const userId = req.body.id;
+
+    let wishes;
+    try {
+      wishes = await Wishlist.findAll({ userId });
+    } catch (error) { res.json(error); }
+
+    res.render('wishlist', { user: userId, wishes });
   }
 }
 

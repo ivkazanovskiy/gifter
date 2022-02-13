@@ -20,5 +20,11 @@
       <button type="submit" class="w-10 h-10 m-0 rounded-full border-2 border-black"></button>
     </form>
   </div>
-  <div class="border-2 border-black h-full basis-1/4 "></div>
+  <div class="border-2 border-black h-full basis-1/4 ">
+    <ul class="flex flex-col">
+      {{#each wishes }}
+        {{>wish}}
+      {{/each}}
+    </ul>
+  </div>
 </div>

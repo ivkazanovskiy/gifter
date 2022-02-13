@@ -45,4 +45,8 @@
   .chatMessage{
     @apply p-2 m-2 border-2 border-black rounded-md mr-8
   }
+
+  .deleteWishButton {
+    @apply w-0 h-10
+  }
 }
