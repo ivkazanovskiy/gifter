@@ -29,6 +29,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.TEXT,
     },
+    telegramId: {
+      type: DataTypes.INTEGER,
+      unique: true,
+    },
   }, {
     sequelize,
     modelName: 'User',

@@ -8,6 +8,8 @@ const normalizeRoomMembers = require('../helpers/normalizeRoomMembers');
 
 class Render {
   index(req, res) {
+    if (req.body.id) return res.redirect('/crews');
+
     res.render('index', { user: req.body.id });
   }
 
@@ -44,6 +46,7 @@ class Render {
     normalizeCrews(crews);
 
     res.render('crews', {
+      crewsPage: true,
       crews,
       user: req.body.id,
     });
@@ -119,9 +122,7 @@ class Render {
     } catch (error) { res.json(error); }
 
     normalizeRoomMembers(roomMembers);
-    
-    console.log(wishes);
-    
+
     res.render('room', {
       user: req.body.id,
       messages,
@@ -143,7 +144,11 @@ class Render {
   async addMember(req, res) {
     if (!req.body.id) return res.redirect('/login');
     const { crewId } = req.params;
-    res.render('addMember', { user: req.body.id, crewId });
+    res.render('addMember', {
+      addMemberPage: true,
+      user: req.body.id,
+      crewId,
+    });
   }
 
   async wishlist(req, res) {

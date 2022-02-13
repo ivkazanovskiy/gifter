@@ -1,30 +1,30 @@
-<div class="flex h-full">
-  <div class="flex flex-col border-2 h-full border-black basis-1/4 ">
+<div class="room">
+  {{!-- <div class="roomMembers">
   {{#each roomMembers}}
     <div class="flex" >
       <div class="flex justify-center items-center border-2 m-2 border-black rounded-full w-10 h-10">{{this.id}}</div>
       <div class="flex  items-center grow">{{this.name}}</div>
     </div>
   {{/each}}
-  </div>
-  <div class="flex border-2 h-full flex-col basis-1/2">
-    <div class="chatBox inline-block h-auto overflow-y-scroll">
+  </div> --}}
+  <div class="roomChat">
+    <div class="chatBox">
       {{#each messages }}
         <div class="chatMessage">
           {{>message}}
         </div>
       {{/each}}
     </div>
-    <form class="flex border-2 border-black" name="chatForm" data-user_id="{{userId}}" data-gifter_id="{{gifterId}}" data-crew_id="{{crewId}}">
-      <input type="text" class="h-0 p-5 grow border-2 border-black" name="text"> 
-      <button type="submit" class="w-10 h-10 m-0 rounded-full border-2 border-black"></button>
+    <form class="chatForm" name="chatForm" data-user_id="{{userId}}" data-gifter_id="{{gifterId}}" data-crew_id="{{crewId}}">
+      <input type="text"  name="text"> 
+      <button type="submit" ></button>
     </form>
   </div>
-  <div class="border-2 border-black h-full basis-1/4 ">
+  {{!-- <div class="roomWishes">
     <ul class="flex flex-col">
       {{#each wishes }}
         {{>wish}}
       {{/each}}
     </ul>
-  </div>
+  </div> --}}
 </div>

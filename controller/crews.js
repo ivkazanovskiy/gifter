@@ -1,6 +1,5 @@
 const { Crew, CrewMember } = require('../db/models');
 
-
 class Crews {
   async new(req, res) {
     if (!req.body.id) return res.json({ message: 'unauthorized' });
@@ -22,7 +21,7 @@ class Crews {
       return res.json({ message: errors.message });
     }
 
-    res.json({ message: 'saved' });
+    res.redirect('/crews');
   }
 
   async addMember(req, res) {

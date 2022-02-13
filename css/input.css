@@ -3,50 +3,147 @@
 @tailwind utilities;
 
 @layer base{
-  button {
-    @apply min-w-min p-2 h-20 w-20 border-2 rounded-full border-gray-400 m-2 hover:bg-gray-400 hover:text-white;
+  html {
+    @apply h-screen
   }
+
+  body {
+    @apply  flex flex-col h-full 
+  }
+
+  nav {
+    @apply flex
+  }
+
+  button {
+    @apply border-2 border-gray-400 hover:bg-gray-400 hover:text-white;
+  }
+
+  nav>form {
+    @apply flex flex-1 justify-center
+  }
+
+  nav>form>button {
+    @apply mt-4 mb-4 w-20 h-20 rounded-full 
+  }
+
+  /* button {
+    @apply min-w-min p-2 h-20 w-20 border-2 rounded-full border-gray-400 m-2 
+  } */
 
 }
 
-@layer components{
-  .input-text {
+@layer components {
+
+
+  /* какой-то жесткий костыль с высотой 96, но работает */
+  .body { 
+    @apply flex-1 items-start justify-center h-96 
+  }  
+
+  .bigButtons { 
+    @apply flex flex-col mx-auto
+  }
+
+  .bigButtons>form { 
+    @apply mt-20 mx-auto
+  }
+
+  .bigButtons>form>button { 
+    @apply h-60 w-60 rounded-full
+  }
+
+  .crewList, .memberList { 
+    @apply flex flex-wrap 
+  }
+
+  .crewList>form {
+    @apply mx-auto
+  }
+
+  .crewList>form>button { 
+    @apply w-40 h-40 rounded-full my-4
+  }
+
+  .memberList>form {
+    @apply mx-auto
+  }
+
+  .memberList>form>button { 
+    @apply w-40 h-40 rounded-full my-4
+  }
+
+  .room{
+    @apply flex flex-col h-full w-full self-stretch 
+  }
+
+  .roomMembers{
+    @apply flex flex-col border-2 border-black hidden
+  }
+
+  .roomWishes{
+    @apply flex flex-col border-2 border-black
+  }
+
+  .roomChat{
+    @apply flex h-full border-2 flex-col 
+  }
+
+  .chatBox {
+    @apply inline-block overflow-y-scroll
+  }
+
+  .chatMessage {
+    @apply border-2 border-gray-400 mx-4 my-2 p-2 rounded-lg
+  }
+
+  .chatForm {
+    @apply flex m-4
+  }
+
+  .chatForm>input {
+    @apply border-2 border-black rounded-lg  mr-2 grow p-2
+  }
+
+  .chatForm>button {
+    @apply rounded-full ml-2 w-10 h-10
+  }
+
+
+
+  .inputForm {
+    @apply flex flex-col items-center mt-20 mx-auto
+  }
+
+  .inputText {
     @apply border-2 border-black rounded-lg p-2 m-2 w-80;
-  }
-
-  .input-form {
-    @apply flex flex-col items-center mt-20
-  }
+  } 
   
-  .input-form button {
-    @apply w-80 h-auto p-2 mt-6 rounded-md
+  .inputForm>button {
+    @apply w-80 h-auto p-2 mt-6 rounded-lg 
   }
 
-  .big-icons{
-    @apply flex flex-col items-center
+  .responseMessage{
+    @apply mt-4
   }
 
-  .big-icons button{
-    @apply h-60 w-60 m-10
+  .wishlistPage {
+    @apply flex flex-col h-full
   }
 
-  .crew-list{
-    @apply flex flex-wrap justify-center
+  .wishList {
+    @apply flex flex-col mt-4
   }
 
-  .crew-list button{
-    @apply h-40 w-40 m-7
+  .wishList>li{
+    @apply flex self-center m-2
   }
 
-  .chatBox{
-    @apply  flex flex-col justify-end grow border-2 border-black
+  .wishList>li>div{
+    @apply  p-2
   }
 
-  .chatMessage{
-    @apply p-2 m-2 border-2 border-black rounded-md mr-8
-  }
-
-  .deleteWishButton {
-    @apply w-0 h-10
+  .wishList>li>button{
+    @apply rounded-lg p-2 mr-2
   }
 }

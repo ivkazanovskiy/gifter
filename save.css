@@ -1,0 +1,63 @@
+  /* button {
+    @apply min-w-min p-2 h-20 w-20 border-2 rounded-full border-gray-400 m-2 hover:bg-gray-400 hover:text-white;
+  } */
+
+   /* .crewsButton, .addMemberButton, .backToCrewButton {
+    @apply ml-10 sm:ml-20 md:ml-40 lg:ml-60 2xl:ml-80
+  }
+
+  .newCrewsButton {
+    @apply ml-auto mr-auto
+  }
+
+  .profileButton {
+    @apply ml-auto
+  }
+
+  .signOutButton {
+    @apply mr-10 sm:mr-20 md:mr-40 lg:mr-60 2xl:mr-80
+  }
+
+  .input-text {
+    @apply border-2 border-black rounded-lg p-2 m-2 w-80;
+  }
+
+  .input-form {
+    @apply flex flex-col items-center mt-20
+  }
+  
+  .input-form button {
+    @apply w-80 h-auto p-2 mt-6 rounded-md
+  }
+
+  .big-icons{
+    @apply flex flex-col items-center
+  }
+
+  .big-icons button{
+    @apply h-60 w-60 m-10
+  }
+
+  .crew-list{
+    @apply flex flex-wrap justify-center
+  }
+
+  .crew-list button{
+    @apply h-40 w-40 m-7
+  }
+
+  .chatBox{
+    @apply  flex flex-col justify-end grow border-2 border-black
+  }
+
+  .chatMessage{
+    @apply p-2 m-2 border-2 border-black rounded-md mr-8
+  }
+
+  .deleteWishButton {
+    @apply w-0 h-10
+  }
+
+  .bookWishButton{
+    @apply w-0
+  } */

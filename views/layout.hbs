@@ -7,7 +7,8 @@
   <script defer src="/js/clientRegistration.js"></script>
   <script defer src="/js/clientLogin.js"></script>
   <script defer src="/js/clientEditProfile.js"></script>
-    <script defer src="/js/clientWishlist.js"></script>
+  <script defer src="/js/clientAddMember.js"></script>
+  <script defer src="/js/clientWishlist.js"></script>
   {{#if room}}
   <script src="/socket.io/socket.io.js"></script>
   <script defer src="/js/clientRoom.js"></script>
@@ -15,28 +16,38 @@
   <link href="/css/style.css" rel="stylesheet">
   <title>Document</title>
 </head>
-<body class="flex flex-col h-screen m-2">
-  <nav class="flex justify-start flex-1">
+<body>
+  <nav>
   {{#if user}}
-    <form action="/" class="ml-10 sm:ml-20 md:ml-40 lg:ml-60 2xl:ml-80">
-      <button type="submit">Home</button>
+    <form action="/crews" class="crewsButton">
+      <button type="submit">Crews</button>
     </form>
   {{/if}}
+  {{#if crewsPage}}
+    <form action="/crews/new" class="newCrewButton">
+      <button type="submit">Add crew</button>
+    </form>  
+  {{/if}}
+  {{#if addMemberPage}}
+  <form action="/crews/{{crewId}}" class="backToCrewButton">
+    <button type="submit">Back to crew</button>
+  </form>  
+  {{/if}}
   {{#if membersPage}}
-    <form action="/crews/{{crewId}}/add" class="ml-auto mr-auto">
+    <form action="/crews/{{crewId}}/add" class="addMemberButton">
       <button type="submit">Add member</button>
     </form>  
   {{/if}}
   {{#if user}}
-    <form action="/profile" class="ml-auto">
+    <form action="/profile" class="profileButton">
       <button type="submit">Profile</button>
     </form>  
-    <form action="/logout" class="mr-10 sm:mr-20 md:mr-40 lg:mr-60 2xl:mr-80">
+    <form action="/logout" class="signOutButton">
       <button type="submit">Sign-Out</button>
     </form> 
   {{/if}}
   </nav>
-  <div class="  h-5/6  ">
+  <div class="body">
     {{{body}}}
   </div>
 </body>
