@@ -48,7 +48,7 @@
   }
 
   .bigButtons>form>button { 
-    @apply h-60 w-60 rounded-full
+    @apply h-48 w-48 rounded-full
   }
 
   .crewList, .memberList { 
