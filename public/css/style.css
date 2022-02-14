@@ -514,8 +514,6 @@ nav>form>button {
   --tw-backdrop-sepia:  ;
 }
 
-/* какой-то жесткий костыль с высотой 96, но работает */
-
 .body {
   height: 85%;
   align-items: flex-start;
@@ -533,7 +531,8 @@ nav>form>button {
 .bigButtons>form {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 .bigButtons>form>button {
@@ -719,6 +718,18 @@ nav>form>button {
 
 .wishList>li>button {
   margin-right: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.profileText {
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.profileText>form>button {
+  margin-left: 1.25rem;
   border-radius: 0.5rem;
   padding: 0.5rem;
 }

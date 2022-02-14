@@ -35,18 +35,16 @@
 
 @layer components {
 
-
-  /* какой-то жесткий костыль с высотой 96, но работает */
   .body { 
     @apply items-start justify-center h-[85%]
   }  
 
   .bigButtons { 
-    @apply flex flex-col mx-auto items-center 
+    @apply flex flex-col mx-auto items-center  
   }
 
   .bigButtons>form { 
-    @apply mt-20 mx-auto
+    @apply  mx-auto my-5
   }
 
   .bigButtons>form>button { 
@@ -92,7 +90,6 @@
     @apply flex items-center m-1 mx-auto
   }
 
-
   .roomWishes>ul>li>button {
     @apply ml-2 p-1 rounded-lg
   }
@@ -120,8 +117,6 @@
   .chatForm>button {
     @apply rounded-full ml-2 w-10 h-10
   }
-
-
 
   .inputForm {
     @apply flex flex-col items-center mt-20 mx-auto
@@ -159,4 +154,11 @@
     @apply rounded-lg p-2 mr-2
   }
 
+  .profileText {
+    @apply flex items-center mb-5
+  }
+
+  .profileText>form>button {
+    @apply p-2 rounded-lg ml-5 
+  }
 }
