@@ -102,7 +102,7 @@
   }
 
   .chatBox {
-    @apply inline-block overflow-y-scroll
+    @apply inline-block overflow-y-scroll grow
   }
 
   .chatMessage {
