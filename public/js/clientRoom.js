@@ -6,11 +6,15 @@ const gifterId = chatForm.dataset.gifter_id;
 const crewId = chatForm.dataset.crew_id;
 const roomId = `${crewId}_${gifterId}`;
 
+chatBox.scrollTop = chatBox.scrollHeight;
+
 function addMessage(message) {
   const newMessage = document.createElement('div');
   newMessage.classList.add('chatMessage');
   newMessage.innerText = `${message.userId}: ${message.text}`;
   chatBox.appendChild(newMessage);
+
+  chatBox.scrollTop = chatBox.scrollHeight;
 }
 
 socket.emit('toServer:joinRoom', roomId);
