@@ -157,7 +157,7 @@ class Render {
 
     let wishes;
     try {
-      wishes = await Wishlist.findAll({ userId });
+      wishes = await Wishlist.findAll({ where: { userId } });
     } catch (error) { res.json(error); }
 
     res.render('wishlist', { user: userId, wishes });
